@@ -1,0 +1,14 @@
+<div class="box">
+    <h4 [ngStyle]="{color:getColor()}">Appareil:{{appareilName}} -- Statut: {{getStatus()}} </h4>
+
+    <button class="btn btn-sm btn-success"
+            *ngIf="getStatus() === 'éteint'"
+            (click)="onSwitchOn()">Allumer</button>
+    <button class="btn btn-sm btn-danger"
+            *ngIf="getStatus() === 'allumé'"
+            (click)="onSwitchOff()">Eteindre</button>
+</div>
+
+
+
+
