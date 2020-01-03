@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {AppareilService} from '../appareil.service'
-import { runInThisContext } from 'vm';
+
 
 @Component({
   selector: 'app-appareil',
@@ -17,6 +17,7 @@ export class AppareilComponent implements OnInit {
   @Input() appareilName:string;
   @Input() appareilStatus:string;
   @Input() appareilIndex: number;
+  @Input() id:number;
   
   getStatus(){
     return this.appareilStatus;

@@ -1,0 +1,15 @@
+<h4>Liste de vos appareils</h4>
+
+<app-appareil *ngFor="let appareil of appareils; let i =index"
+          [appareilName]="appareil.name"
+          [appareilStatus]="appareil.status"
+          [appareilIndex]="i"
+          [id]="appareil.id"></app-appareil>
+
+
+<button class="" 
+(click)="onAllumer()">Tout allumer</button>
+
+<button class =""
+(click)="onEteindre()">Tout éteindre</button>
+

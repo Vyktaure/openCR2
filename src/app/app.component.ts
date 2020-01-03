@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AppareilService} from './appareil.service';
+import {Observable,interval} from 'rxjs';
+
 
 
 @Component({
@@ -9,6 +11,7 @@ import {AppareilService} from './appareil.service';
 })
 export class AppComponent implements OnInit{
   title = 'appareil';
+  secondes:  number;
 
   appareils : any[];
 
@@ -17,16 +20,18 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.appareils = this.appareilService.appareils;
+    //emit value in sequence every 1 second
+    const secondes = interval(1000);
+    //output: 0,1,2,3,4,5....
+    const subscribe = secondes.subscribe(
+        (value) => {this.secondes=value;
+        },
+        (error) => {console.log('erreur : ' +error);
+        },
+        ()=> {console.log('Observable complete');
+        }
+    );
   }
-  onAllumer(){
-    this.appareilService.switchOnAll();
-  }
-  onEteindre(){
-    if(confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')){
-      this.appareilService.switchOfAll();
-    } else {
-      return null;
-    }
-  }
+ 
 
 }

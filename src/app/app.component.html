@@ -1,21 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h4>Liste de vos appareils</h4>
-
-        <app-appareil *ngFor="let appareil of appareils; let i =index"
-                  [appareilName]="appareil.name"
-                  [appareilStatus]="appareil.status"
-                  [appareilIndex]="i"></app-appareil>
-
-
-<button class="" 
-(click)="onAllumer()">Tout allumer</button>
-
-<button class =""
-(click)="onEteindre()">Tout éteindre</button>
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+        <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+      </ul>
+      <div class="navbar-right">
+        <p>Vous êtes connecté depuis {{ secondes }} secondes !</p>
+    </div>
     </div>
   </div>
-</div>
+</nav>
+
+
+<router-outlet></router-outlet>
  
